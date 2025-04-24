@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import Link from "next/link";
 
 import { AllPosts } from "@/app/components/Posts";
-import GetStartedCode from "@/app/components/GetStartedCode";
 
 export default async function Page() {
   return (
@@ -14,36 +13,33 @@ export default async function Page() {
           <div className="mx-auto max-w-2xl py-20 lg:max-w-4xl lg:px-12 text-center">
             <div className="flex flex-col gap-4 items-center">
               <div className=" text-md leading-6 prose uppercase">
-                A starter template for
+              Insights & Best Practices from
               </div>
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black">
-                <Link className="text-red-500 " href="https://sanity.io/">
-                  Sanity
+                <Link className="text-red-500 " href="#">
+                Hey Harvey’s  
                 </Link>{" "}
-                +{" "}
-                <Link className="text-[#000] " href="https://nextjs.org/">
-                  Next.js
+                {" "}
+                <Link className="text-[#000] " href="#">
+                AI Lab
                 </Link>
               </h1>
             </div>
             <div className="mt-6 space-y-6 prose sm:prose-lg md:prose-xl lg:prose-2xl text-gray-700">
               <p>
-                This starter is a statically generated site that uses Next.js
-                for the frontend and Sanity to handle its content. It comes with
-                a standalone Sanity Studio that offers features like real-time
-                collaboration, instant side-by-side content previews, and
-                intuitive editing.
+              Our blog is your go-to resource for mastering customer service with AI-driven training. 
+              Dive into expert tips, real-world scenario breakdowns, and behind-the-scenes updates 
+              on how Hey Harvey is evolving to help you communicate with confidence and empathy.
               </p>
             </div>
             <div className="flex items-center flex-col gap-4">
-              <GetStartedCode />
               <Link
-                href="https://www.sanity.io/docs"
+                href="https://www.heyharvey.me"
                 className="inline-flex text-red-500 text-xs md:text-sm underline hover:text-gray-900"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Sanity Documentation
+                Signup for Early Access
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
