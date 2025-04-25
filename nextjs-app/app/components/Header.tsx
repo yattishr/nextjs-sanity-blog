@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BotIcon } from "lucide-react";
+import { BotIcon, Search } from "lucide-react";
+import SearchInput from "./SearchInput";
 
 export default function Header() {
   return (
@@ -12,6 +13,7 @@ export default function Header() {
               Hey Harvey
             </span>
           </Link>
+          <SearchInput />
 
           <nav className="">
             <ul
@@ -27,9 +29,7 @@ export default function Header() {
               <li className="sm:before:w-[1px] sm:before:bg-gray-100 before:block flex sm:gap-4 md:gap-6">
                 <Link
                   className="rounded-full flex gap-2 items-center bg-black hover:bg-red-500 focus:bg-cyan-500 p-1 sm:py-3 sm:px-6 text-white transition-colors duration-200"
-                  href="https://github.com/sanity-io/sanity-template-nextjs-clean"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/posts-browse"
                 >
                   <span className="sr-only sm:not-sr-only">Browse all articles</span>
                 </Link>

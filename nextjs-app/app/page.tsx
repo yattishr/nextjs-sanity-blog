@@ -27,7 +27,7 @@ export default async function Page() {
             </div>
             <div className="mt-6 space-y-6 prose sm:prose-lg md:prose-xl lg:prose-2xl text-gray-700">
               <p>
-              Our blog is your go-to resource for mastering customer service with AI-driven training. 
+              Our blog is your <span className="underline decoration-4 decoration-[#F7AB0A]"> go-to resource for mastering customer service with AI-driven training. </span> 
               Dive into expert tips, real-world scenario breakdowns, and behind-the-scenes updates 
               on how Hey Harvey is evolving to help you communicate with confidence and empathy.
               </p>

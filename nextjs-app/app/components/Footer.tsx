@@ -1,13 +1,17 @@
-export default function Footer() {
+import { BotIcon } from 'lucide-react'
+import React from 'react'
+
+function Footer() {
   return (
-    <footer className="bg-gray-50 border-gray-100 border-t">
-      <div className="container">
-        <div className="flex flex-col items-center py-20 lg:flex-row">
-          <h3 className="mb-10 text-center text-md font-bold leading-tight tracking-tighter lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left lg:text-md">
-            Built with ❤️ + Sanity + Next.js
-          </h3>
-        </div>
+    <section className='py-4 px-4 md:px-0 bg-gradient-to-r from-indigo-400 to-indigo-600'>
+      <div className='text-center'>
+        <p className='text-md text-blue-50'>Transform your customer interactions today—join the ranks of businesses that trust <span className="underline decoration-4 decoration-[#F7AB0A]">Hey Harvey</span> to deliver exceptional results.</p>
+        <p className='text-md text-white mb-6 flex items-center justify-center p-2'>
+        ✅ Reduce Training Costs | ✅ Shorten Onboarding Time | ✅ Boost Customer Satisfaction <BotIcon className='ml-2' />
+        </p>
       </div>
-    </footer>
-  );
+    </section>
+  )
 }
+
+export default Footer
