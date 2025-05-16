@@ -13,13 +13,13 @@ export const description = [
         _key: '4a58edd077880',
         _type: 'span',
         marks: [],
-        text: 'A statically generated blog example using ',
+        text: 'Hey Harvey’s ',
       },
       {
         _key: '4a58edd077881',
         _type: 'span',
         marks: ['ec5b66c9b1e0'],
-        text: 'Next.js',
+        text: 'AI Lab',
       },
       {
         _key: '4a58edd077882',

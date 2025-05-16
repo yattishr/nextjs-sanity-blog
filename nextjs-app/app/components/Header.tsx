@@ -31,9 +31,19 @@ export default function Header() {
                   className="rounded-full flex gap-2 items-center bg-black hover:bg-red-500 focus:bg-cyan-500 p-1 sm:py-3 sm:px-6 text-white transition-colors duration-200"
                   href="/posts-browse"
                 >
-                  <span className="sr-only sm:not-sr-only">Browse all articles</span>
+                  <span className="sr-only sm:not-sr-only">Browse Articles</span>
                 </Link>
               </li>
+              <li className="sm:before:w-[1px] sm:before:bg-gray-100 before:block flex sm:gap-4 md:gap-6">
+                <Link
+                  className="rounded-full flex gap-2 items-center bg-red-500 p-1 sm:py-3 sm:px-6 text-white transition-colors duration-200"
+                  href="https://heyharvey-blog.sanity.studio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="sr-only sm:not-sr-only">Sign In</span>
+                </Link>
+              </li>              
             </ul>
           </nav>
         </div>
