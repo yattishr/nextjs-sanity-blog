@@ -1,0 +1,29 @@
+[build]
+base = "."
+command = "npm --workspace nextjs-app run build"
+publish = "nextjs-app/.next"
+
+[[redirects]]
+from = "/wp-login.php"
+to = "/404"
+status = 404
+
+[[redirects]]
+from = "/xmlrpc.php"
+to = "/404"
+status = 404
+
+[[redirects]]
+from = "/.env"
+to = "/404"
+status = 404
+
+[[redirects]]
+from = "/autodiscover/*"
+to = "/404"
+status = 404
+
+[[redirects]]
+from = "/phpinfo.php"
+to = "/404"
+status = 404
