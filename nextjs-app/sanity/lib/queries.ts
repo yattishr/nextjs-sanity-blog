@@ -9,7 +9,7 @@ const postFields = /* groq */ `
   "slug": slug.current,
   excerpt,
   coverImage,
-  "date": coalesce(date, _updatedAt),
+  "date": coalesce(date, _createdAt),
   "author": author->{firstName, lastName, picture},
 `;
 
@@ -62,13 +62,13 @@ export const sitemapData = defineQuery(`
 `);
 
 export const allPostsQuery = defineQuery(`
-  *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {
+  *[_type == "post" && defined(slug.current)] | order(date desc, _createdAt desc) {
     ${postFields}
   }
 `);
 
 export const morePostsQuery = defineQuery(`
-  *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {
+  *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _createdAt desc) [0...$limit] {
     ${postFields}
   }
 `);
