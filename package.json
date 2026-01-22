@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@sanity/vision": "^5.5.0",
+    "fix-react2shell-next": "^1.1.4",
     "lucide-react": "^0.503.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
