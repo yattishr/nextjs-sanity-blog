@@ -1,3 +1,109 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @keyframes postReveal {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes dropdownIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .post-reveal {
+    opacity: 0;
+    animation: postReveal 420ms ease-out forwards;
+  }
+
+  .search-dropdown {
+    animation: dropdownIn 180ms ease-out;
+  }
+
+  .section-label {
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgb(107 114 128);
+  }
+
+  .divider-ornament {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.25rem;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid rgb(229 231 235);
+  }
+
+  .divider-ornament::after {
+    margin-left: 0.75rem;
+  }
+
+  .divider-ornament::before {
+    margin-right: 0.75rem;
+  }
+
+  .divider-ornament span {
+    color: rgb(239 68 68);
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .refined-underline {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: rgb(239 68 68 / 0.55);
+    text-underline-offset: 0.16em;
+    transition:
+      text-decoration-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .refined-underline:hover,
+  .refined-underline:focus-visible {
+    text-decoration-color: rgb(239 68 68);
+  }
+
+  .editorial-prose blockquote {
+    border-left: 3px solid rgb(239 68 68 / 0.7);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.25rem 0 0.25rem 1rem;
+    font-style: italic;
+    color: rgb(55 65 81);
+  }
+
+  .editorial-prose blockquote p:first-of-type::before,
+  .editorial-prose blockquote p:last-of-type::after {
+    content: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post-reveal,
+    .search-dropdown {
+      animation: none;
+    }
+  }
+}

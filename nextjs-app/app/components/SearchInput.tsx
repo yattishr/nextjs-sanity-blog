@@ -85,7 +85,7 @@ function SearchInput() {
   return (
     <Form
       action="/search"
-      className="relative w-full flex-1 max-w-[300px]"
+      className="group relative w-full flex-1 max-w-[300px]"
       onSubmit={() => setShowDropdown(false)}
     >
       <input
@@ -102,11 +102,11 @@ function SearchInput() {
         }}
         placeholder="Search blogs..."
         aria-label="Search posts"
-        className="w-full rounded-full bg-secondary/80 px-4 py-2 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+        className="w-full rounded-full bg-secondary/80 px-4 py-2 pl-10 text-sm transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-primary"
       />
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors duration-200 ease-out group-focus-within:text-gray-600" />
       {showDropdown && term.trim() && (
-        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 rounded-2xl border border-gray-200 bg-white p-2 shadow-lg">
+        <div className="search-dropdown absolute left-0 right-0 top-[calc(100%+8px)] z-50 rounded-2xl border border-gray-200 bg-white p-2 shadow-lg">
           {isLoading && <p className="px-3 py-2 text-xs text-gray-500">Searching...</p>}
           {!isLoading && results.length === 0 && (
             <p className="px-3 py-2 text-xs text-gray-500">No matches found.</p>
@@ -116,7 +116,7 @@ function SearchInput() {
               <Link
                 key={result._id}
                 href={`/posts/${result.slug}`}
-                className="block rounded-lg px-3 py-2 hover:bg-gray-50"
+                className="block rounded-lg px-3 py-2 transition-colors duration-150 ease-out hover:bg-gray-50"
                 onClick={() => setShowDropdown(false)}
               >
                 <p className="text-sm font-medium text-gray-900">

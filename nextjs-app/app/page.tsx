@@ -12,15 +12,15 @@ export default async function Page() {
         <div className="container relative">
           <div className="mx-auto max-w-2xl py-20 lg:max-w-4xl lg:px-12 text-center">
             <div className="flex flex-col gap-4 items-center">
-              <div className=" text-md leading-6 prose uppercase">
+              <div className="section-label">
               Insights & Best Practices from
               </div>
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black">
-                <Link className="text-red-500 " href="#">
+                <Link className="text-red-500 refined-underline" href="#">
                 Hey Harvey’s  
                 </Link>{" "}
                 {" "}
-                <Link className="text-[#000] " href="#">
+                <Link className="text-[#000] refined-underline" href="#">
                 AI Lab
                 </Link>
               </h1>
@@ -35,7 +35,7 @@ export default async function Page() {
             <div className="flex items-center flex-col gap-4">
               <Link
                 href="https://www.heyharvey.me"
-                className="inline-flex text-red-500 text-xs md:text-sm underline hover:text-gray-900"
+                className="inline-flex text-red-500 text-xs md:text-sm refined-underline hover:text-gray-900 transition-colors duration-200 ease-out"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -56,6 +56,9 @@ export default async function Page() {
       <div className="border-t border-gray-10">
         <div className="container">
           <aside className="py-12 sm:py-20">
+            <div className="divider-ornament mb-6 sm:mb-8" aria-hidden="true">
+              <span>✦</span>
+            </div>
             <Suspense>{await AllPosts()}</Suspense>
           </aside>
         </div>

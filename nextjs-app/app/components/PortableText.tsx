@@ -80,14 +80,18 @@ export default function CustomPortableText({
     },
     marks: {
       link: ({ children, value: link }) => {
-        return <ResolvedLink link={link}>{children}</ResolvedLink>;
+        return (
+          <ResolvedLink className="refined-underline" link={link}>
+            {children}
+          </ResolvedLink>
+        );
       },
     },
   };
 
   return (
     <div
-      className={["prose prose-a:text-red-500", className]
+      className={["prose prose-a:text-red-500 editorial-prose", className]
         .filter(Boolean)
         .join(" ")}
     >
