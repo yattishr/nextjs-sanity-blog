@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { BotIcon } from "lucide-react";
 import SearchInput from "./SearchInput";
@@ -13,7 +14,15 @@ export default function Header() {
               Hey Harvey
             </span>
           </Link>
-          <SearchInput />
+          <Suspense
+            fallback={
+              <div className="w-full flex-1 max-w-[300px]">
+                <div className="h-10 rounded-full bg-secondary/60" />
+              </div>
+            }
+          >
+            <SearchInput />
+          </Suspense>
 
           <nav className="">
             <ul
