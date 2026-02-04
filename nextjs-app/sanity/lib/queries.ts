@@ -79,7 +79,8 @@ export const searchPostsQuery = defineQuery(`
     defined(slug.current) &&
     (
       title match $searchPattern ||
-      excerpt match $searchPattern
+      excerpt match $searchPattern ||
+      pt::text(content) match $searchPattern
     )
   ] | order(date desc, _createdAt desc) {
     ${postFields}
