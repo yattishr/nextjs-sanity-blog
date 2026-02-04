@@ -73,6 +73,19 @@ export const morePostsQuery = defineQuery(`
   }
 `);
 
+export const searchPostsQuery = defineQuery(`
+  *[
+    _type == "post" &&
+    defined(slug.current) &&
+    (
+      title match $searchPattern ||
+      excerpt match $searchPattern
+    )
+  ] | order(date desc, _createdAt desc) {
+    ${postFields}
+  }
+`);
+
 export const postQuery = defineQuery(`
   *[_type == "post" && slug.current == $slug] [0] {
     content[]{

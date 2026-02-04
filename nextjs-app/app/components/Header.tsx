@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BotIcon, Search } from "lucide-react";
+import { BotIcon } from "lucide-react";
 import SearchInput from "./SearchInput";
 
 export default function Header() {

@@ -1,12 +1,43 @@
 import Link from "next/link";
 
 import { sanityFetch } from "@/sanity/lib/live";
-import { morePostsQuery, allPostsQuery } from "@/sanity/lib/queries";
+import {
+  morePostsQuery,
+  allPostsQuery,
+  searchPostsQuery,
+} from "@/sanity/lib/queries";
 import { Post as PostType } from "@/sanity.types";
 import DateComponent from "@/app/components/Date";
 import OnBoarding from "@/app/components/Onboarding";
 
-const Post = ({ post }: { post: PostType }) => {
+const escapeRegExp = (value: string) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const highlightText = (text: string, searchTerm?: string) => {
+  if (!searchTerm) {
+    return text;
+  }
+
+  const term = searchTerm.trim();
+  if (!term) {
+    return text;
+  }
+
+  const pattern = new RegExp(`(${escapeRegExp(term)})`, "ig");
+  const parts = text.split(pattern);
+
+  return parts.map((part, index) =>
+    part.toLowerCase() === term.toLowerCase() ? (
+      <mark key={`${part}-${index}`} className="bg-yellow-200 px-0.5 rounded-sm">
+        {part}
+      </mark>
+    ) : (
+      <span key={`${part}-${index}`}>{part}</span>
+    )
+  );
+};
+
+const Post = ({ post, searchTerm }: { post: PostType; searchTerm?: string }) => {
   const { _id, title, slug, excerpt, date } = post;
 
   return (
@@ -23,11 +54,11 @@ const Post = ({ post }: { post: PostType }) => {
           className="hover:text-red-500 underline transition-colors"
           href={`/posts/${slug}`}
         >
-          {title}
+          {highlightText(title ?? "Untitled", searchTerm)}
         </Link>
       </h3>
       <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-        {excerpt}
+        {highlightText(excerpt ?? "", searchTerm)}
       </p>
     </article>
   );
@@ -93,6 +124,45 @@ export const AllPosts = async () => {
     >
       {data.map((post: any) => (
         <Post key={post._id} post={post} />
+      ))}
+    </Posts>
+  );
+};
+
+export const SearchPosts = async ({ term }: { term: string }) => {
+  const cleanTerm = term.trim();
+
+  if (!cleanTerm) {
+    return (
+      <Posts heading="Search Posts" subHeading="Enter a term to search posts.">
+        <p className="text-sm text-gray-600">Try keywords from a post title or excerpt.</p>
+      </Posts>
+    );
+  }
+
+  const { data } = await sanityFetch({
+    query: searchPostsQuery,
+    params: { searchPattern: `*${cleanTerm}*` },
+  });
+
+  if (!data || data.length === 0) {
+    return (
+      <Posts
+        heading={`No results for "${cleanTerm}"`}
+        subHeading="Try a different keyword or shorter phrase."
+      >
+        <p className="text-sm text-gray-600">Search checks post titles and excerpts.</p>
+      </Posts>
+    );
+  }
+
+  return (
+    <Posts
+      heading={`Search results (${data.length})`}
+      subHeading={`Showing matches for "${cleanTerm}"`}
+    >
+      {data.map((post: any) => (
+        <Post key={post._id} post={post} searchTerm={cleanTerm} />
       ))}
     </Posts>
   );
