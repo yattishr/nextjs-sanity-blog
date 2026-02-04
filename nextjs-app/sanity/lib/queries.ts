@@ -62,13 +62,13 @@ export const sitemapData = defineQuery(`
 `);
 
 export const allPostsQuery = defineQuery(`
-  *[_type == "post" && defined(slug.current)] | order(date desc, _createdAt desc) {
+  *[_type == "post" && defined(slug.current)] | order(coalesce(date, _createdAt) desc) {
     ${postFields}
   }
 `);
 
 export const morePostsQuery = defineQuery(`
-  *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _createdAt desc) [0...$limit] {
+  *[_type == "post" && _id != $skip && defined(slug.current)] | order(coalesce(date, _createdAt) desc) [0...$limit] {
     ${postFields}
   }
 `);
@@ -82,7 +82,7 @@ export const searchPostsQuery = defineQuery(`
       excerpt match $searchPattern ||
       pt::text(content) match $searchPattern
     )
-  ] | order(date desc, _createdAt desc) {
+  ] | order(coalesce(date, _createdAt) desc) {
     ${postFields}
   }
 `);
