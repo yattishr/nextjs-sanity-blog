@@ -12,34 +12,29 @@ export default async function Page() {
         <div className="container relative">
           <div className="mx-auto max-w-2xl py-20 lg:max-w-4xl lg:px-12 text-center">
             <div className="flex flex-col gap-4 items-center">
-              <div className="section-label">
-              Insights & Best Practices from
-              </div>
+              <div className="section-label">The Hey Harvey Blog</div>
               <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black">
-                <Link className="text-red-500 refined-underline" href="#">
-                Hey Harvey’s  
-                </Link>{" "}
-                {" "}
-                <Link className="text-[#000] refined-underline" href="#">
-                AI Lab
-                </Link>
+                <span className="text-red-500">Better customer</span>{" "}
+                conversations
               </h1>
             </div>
             <div className="mt-6 space-y-6 prose sm:prose-lg md:prose-xl lg:prose-2xl text-gray-700">
               <p>
-              Our blog is your <span className="underline decoration-4 decoration-[#F7AB0A]"> go-to resource for mastering customer service with AI-driven training. </span> 
-              Dive into expert tips, real-world scenario breakdowns, and behind-the-scenes updates 
-              on how Hey Harvey is evolving to help you communicate with confidence and empathy.
+                Practical ideas for support leaders, QA managers, and teams who want
+                to turn everyday customer conversations into better outcomes.
+                Explore AI roleplay guides, realistic training scenarios, and coaching
+                tips to help your team build confidence, communicate with empathy,
+                and deliver consistent support.
               </p>
             </div>
             <div className="flex items-center flex-col gap-4">
               <Link
-                href="https://www.heyharvey.me"
+                href="https://heyharvey.me/ai-conversation-training"
                 className="inline-flex text-red-500 text-xs md:text-sm refined-underline hover:text-gray-900 transition-colors duration-200 ease-out"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Signup for Early Access
+                Try the 2-minute live demo
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -49,6 +44,7 @@ export default async function Page() {
                   <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V12L17.206 8.207L11.2071 14.2071L9.79289 12.7929L15.792 6.793L12 3H21Z"></path>
                 </svg>
               </Link>
+              <p className="text-sm text-gray-600">No sign-in required. Get feedback on empathy, clarity, and resolution.</p>
             </div>
           </div>
         </div>
