@@ -5,11 +5,13 @@ User-agent: CCBot
 User-agent: Bytespider
 User-agent: PetalBot
 User-agent: Factset_spyderbot
-User-agent: LINER Bot
+User-agent: LinerBot
 User-agent: Timpibot
 Disallow: /
+
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /search
+
 Sitemap: https://blog.heyharvey.me/sitemap.xml
