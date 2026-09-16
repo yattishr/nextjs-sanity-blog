@@ -1,0 +1,17 @@
+# Keep public articles discoverable while limiting automated bulk collection.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: PetalBot
+User-agent: Factset_spyderbot
+User-agent: LinerBot
+User-agent: Timpibot
+Disallow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /search
+
+Sitemap: https://blog.heyharvey.me/sitemap.xml
